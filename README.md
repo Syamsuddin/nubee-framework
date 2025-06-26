@@ -16,23 +16,50 @@ Framework ini menghadirkan routing URL dinamis, sistem login & manajemen sesi ya
 ## Struktur Folder
 
 ```
-nubee-framework/
-├── index.php
+/nubee-framework/
+├── index.php                   # Entry point: routing dan load layout
+│
 ├── classes/
-│   ├── auth.php
-│   ├── config.php
-│   ├── csrf.php
-│   ├── menu.php
-│   ├── postingan.php
-│   ├── session_security.php
-│   └── user.php
+│   ├── auth.php                # Class Auth: login/logout, proteksi session
+│   ├── category.php		 # Class categori
+│   ├── config.php              # Konfigurasi database dan konstanta global
+│   ├── csrf.php                # Class CSRF: proteksi anti-CSRF
+│   ├── menu.php                # Class Menu: menu, submenu, dan akses role
+│   ├── Postingan.php		 # Class Postingan
+│   ├── session_security.php    # Class SessionSecurity: validasi IP/user agent
+│   └── user.php                # Class User: CRUD user
+│
+├── layout/
+│   ├── header.php              # Bagian atas halaman: menu, HTML head
+│   ├── content.php             # Konten utama (berubah-ubah berdasarkan page)
+│   └── footer.php              # Bagian bawah halaman
+│
 ├── pages/
-│   ├── public/
-│   └── cms/
-└── layout/
-    ├── header.php
-    ├── content.php
-    └── footer.php
+│   ├── dashboard.php           # Halaman utama pengguna setelah login
+│   ├── login.php               # Form login pengguna
+│   ├── user-list.php           # Daftar user (contoh CRUD)
+│   ├── menu-builder.php        # Manajemen menu dan akses (opsional)
+│   └── error.php               # Halaman error (403, 404)
+│
+├── public/
+│   ├── landing.php             # Halaman landing aplikasi
+│   ├── login.php               # Form login pengguna
+│   ├── 403.php        		 # Halaman error 403
+│   └── 404.php               	 # Halaman error 404
+│
+├── assets/
+│   ├── css/
+│   │   └── style.css           # Style utama aplikasi
+│   ├── js/
+│   │   └── app.js              # Script interaktif jika ada
+│   └── img/
+│       └── logo.png            # Logo aplikasi
+│
+├── uploads/                    # (Opsional) Tempat penyimpanan file upload
+├── db.sql               	 # File struktur tabel database Nubee
+├── dokumentasi.pdf             # File dokumentasi Nubee framwork
+└── README.md                   # Dokumentasi dan petunjuk penggunaan
+
 ```
 
 ## Instalasi
